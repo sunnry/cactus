@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/gps.png",
+        "source": "/home/tony/cactus/cactus-a/app/src/main/res/drawable-xhdpi/gps.png"
+    },
+    {
+        "merged": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/pause.png",
+        "source": "/home/tony/cactus/cactus-a/app/src/main/res/drawable-xhdpi/pause.png"
+    },
+    {
+        "merged": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/start.png",
+        "source": "/home/tony/cactus/cactus-a/app/src/main/res/drawable-xhdpi/start.png"
+    },
+    {
+        "merged": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/gst_sdk_icon.png",
+        "source": "/home/tony/cactus/cactus-a/app/src/main/res/drawable-xhdpi/gst_sdk_icon.png"
+    },
+    {
+        "merged": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zoom.png",
+        "source": "/home/tony/cactus/cactus-a/app/src/main/res/drawable-xhdpi/zoom.png"
+    }
+]

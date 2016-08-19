@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomerNavView"><attr format="color" name="paint_color"/><attr format="dimension" name="paint_width"/></declare-styleable>
+    <string name="app_name">cactus</string>
+    <string name="button_play">Play</string>
+    <string name="button_stop">Stop</string>
+</resources>

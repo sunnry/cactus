@@ -1,0 +1,64 @@
+[
+    {
+        "outputFile": "/home/tony/cactus/cactus-a/app/build/intermediates/res/merged/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 208,
+                    "endColumn": 43,
+                    "endOffset": 247
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 43,
+                        "endOffset": 94
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 252,
+                    "endColumn": 44,
+                    "endOffset": 292
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 99,
+                        "endColumn": 44,
+                        "endOffset": 139
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 297,
+                    "endColumn": 44,
+                    "endOffset": 337
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 144,
+                        "endColumn": 44,
+                        "endOffset": 184
+                    }
+                }
+            }
+        ]
+    }
+]

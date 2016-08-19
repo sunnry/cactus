@@ -1,0 +1,65 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:2:1-20:12
+	package
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:3:7-53
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:5:7-32
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:4:7-30
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:6:5-72
+	android:targetSdkVersion
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:6:41-70
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:6:15-40
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+		INJECTED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:8:5-68
+	android:name
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:8:22-65
+uses-feature#0x00020000
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:9:5-53
+	android:glEsVersion
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:9:19-51
+application
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:10:5-19:19
+	android:label
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:10:18-50
+	android:icon
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:11:18-55
+activity#org.freedesktop.gstreamer.tutorial_3.Tutorial3
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:screenOrientation
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:13:52-89
+	android:label
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:13:19-51
+	android:theme
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:13:90-148
+	android:name
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:12:19-44
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:14:13-17:29
+action#android.intent.action.MAIN
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /home/tony/cactus/cactus-a/app/src/main/AndroidManifest.xml:16:27-74
