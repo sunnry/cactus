@@ -37,18 +37,21 @@ containing a value of this type.
         public static final int zoom=0x7f020004;
     }
     public static final class id {
-        public static final int NavView=0x7f050002;
-        public static final int StartStopVideo=0x7f050003;
-        public static final int surface_video=0x7f050001;
-        public static final int topRelativeLayout=0x7f050000;
+        public static final int NavView=0x7f040005;
+        public static final int StartStopVideo=0x7f040006;
+        public static final int id_controlPad_base_view=0x7f040000;
+        public static final int id_controlPad_pad_view=0x7f040001;
+        public static final int id_controllayout=0x7f040002;
+        public static final int surface_video=0x7f040004;
+        public static final int topRelativeLayout=0x7f040003;
     }
     public static final class layout {
         public static final int main=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int button_play=0x7f040001;
-        public static final int button_stop=0x7f040002;
+        public static final int app_name=0x7f050000;
+        public static final int button_play=0x7f050001;
+        public static final int button_stop=0x7f050002;
     }
     public static final class styleable {
         /** Attributes that can be used with a CustomerNavView.

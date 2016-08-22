@@ -25,6 +25,8 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
 
     private boolean is_playing_desired;   // Whether the user asked to go to PLAYING
 
+    private ControlLayout m_leftControlLayout;
+
     // Called when the activity is first created.
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -41,6 +43,15 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
         }
 
         setContentView(R.layout.main);
+
+        m_leftControlLayout = (ControlLayout)findViewById(R.id.id_controllayout);
+
+        m_leftControlLayout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("ControlLayout:","on clicked");
+            }
+        });
 
         /*
         ImageButton play = (ImageButton) this.findViewById(R.id.button_play);

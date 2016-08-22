@@ -7,8 +7,65 @@
                     "startLine": 3,
                     "startColumn": 4,
                     "startOffset": 208,
+                    "endColumn": 52,
+                    "endOffset": 256
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/attrs.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 232,
+                        "endColumn": 52,
+                        "endOffset": 280
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 261,
+                    "endColumn": 51,
+                    "endOffset": 308
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/attrs.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 285,
+                        "endColumn": 51,
+                        "endOffset": 332
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 313,
+                    "endColumn": 45,
+                    "endOffset": 354
+                },
+                "from": {
+                    "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/attrs.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 337,
+                        "endColumn": 45,
+                        "endOffset": 378
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 359,
                     "endColumn": 43,
-                    "endOffset": 247
+                    "endOffset": 398
                 },
                 "from": {
                     "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",
@@ -23,11 +80,11 @@
             },
             {
                 "to": {
-                    "startLine": 4,
+                    "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 252,
+                    "startOffset": 403,
                     "endColumn": 44,
-                    "endOffset": 292
+                    "endOffset": 443
                 },
                 "from": {
                     "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",
@@ -42,11 +99,11 @@
             },
             {
                 "to": {
-                    "startLine": 5,
+                    "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 297,
+                    "startOffset": 448,
                     "endColumn": 44,
-                    "endOffset": 337
+                    "endOffset": 488
                 },
                 "from": {
                     "file": "/home/tony/cactus/cactus-a/app/src/main/res/values/strings.xml",

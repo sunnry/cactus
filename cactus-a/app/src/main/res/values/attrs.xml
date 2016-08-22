@@ -4,4 +4,8 @@
         <attr name="paint_color" format="color"/>
         <attr name="paint_width" format="dimension"/>
     </declare-styleable>
+
+    <item name="id_controlPad_base_view" type="id"/>
+    <item name="id_controlPad_pad_view" type="id"/>
+    <item name="id_controllayout" type="id"/>
 </resources>
