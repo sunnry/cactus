@@ -5,8 +5,15 @@
         jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="c9fb25fec3f47fc357ffa0a0cd62a7fb4b6c02f0">
+        sha1="23ad910a54c5a93ac546777b92511ec3a200f944">
         <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_58eec8864a848da5d650f38f95d0cb0f610d86a2/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okhttp-3.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-3.0.1_4f8945f760db3792a5cad0d2a629dbb7ab06dcb3/classes.dex" />
     </item>
     <item
         jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okhttp-ws-3.0.1.jar"
@@ -19,7 +26,7 @@
         jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="c03ab1995be209766f6aad2ef9c2cc4fe313054d">
+        sha1="25a6940b20055f3750b5b1a368b72bc64af80859">
         <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7b9c38500105dc6932bb35571f488721c3173df0/classes.dex" />
     </item>
     <item
@@ -28,13 +35,6 @@
         revision="24.0.1"
         sha1="98476622f10715998eacf9240d6b479f12c66143">
         <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okio-1.6.0_1e3458229f792a90b2ab548a28048dae77952220/classes.dex" />
-    </item>
-    <item
-        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okhttp-3.0.1.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
-        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-3.0.1_4f8945f760db3792a5cad0d2a629dbb7ab06dcb3/classes.dex" />
     </item>
     <item
         jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/engine.io-client-0.7.0.jar"

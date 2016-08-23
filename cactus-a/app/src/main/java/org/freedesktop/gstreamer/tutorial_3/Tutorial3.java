@@ -2,6 +2,8 @@ package org.freedesktop.gstreamer.tutorial_3;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -33,6 +35,7 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
 
     private ControlLayout m_leftControlLayout;
 
+    //socket.io socket handler
     private Socket mSocket;
     {
         try {
@@ -41,6 +44,16 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
             throw new RuntimeException(e);
         }
     }
+
+    //timer handler
+    private Handler timer_Handler = new Handler();
+    private Runnable timer_runnable = new Runnable() {
+        @Override
+        public void run() {
+            mSocket.emit("control stream");
+            timer_Handler.postDelayed(this,1000);
+        }
+    };
 
     // Called when the activity is first created.
     @Override
@@ -112,6 +125,8 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
 	    mSocket.on(mSocket.EVENT_CONNECT,onSocketioConnected);
         mSocket.connect();
         mSocket.emit("newUser");
+
+        timer_Handler.postDelayed(timer_runnable,1000);
     }
 
     private Emitter.Listener onSocketioConnected = new Emitter.Listener(){
