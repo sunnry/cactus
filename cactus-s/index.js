@@ -8,13 +8,14 @@ app.get('/',function(req,res){
 });
 
 io.sockets.on('connection',function(socket){
-	console.log("one client connected");
-	socket.on('client has ready',function(data){
-		console.log('client has ready');
-	});
-	socket.emit('io server ready');
+	console.log("connected with one android client");
 
-	socket.on('control stream',function(data){
+	socket.on('Client Ready',function(data){
+		console.log('client has ready');
+		socket.emit('Server Ready');
+	});
+
+	socket.on('Control Stream',function(data){
 		console.log('get client control stream');
 	});
 });
