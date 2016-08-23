@@ -11,7 +11,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
+
 import org.freedesktop.gstreamer.GStreamer;
+
+import java.net.URISyntaxException;
 
 public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
     private native void nativeInit();     // Initialize native code, build pipeline, etc
@@ -26,6 +32,15 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
     private boolean is_playing_desired;   // Whether the user asked to go to PLAYING
 
     private ControlLayout m_leftControlLayout;
+
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket(Constants.SERVER_URL);
+        }catch (URISyntaxException e){
+            throw new RuntimeException(e);
+        }
+    }
 
     // Called when the activity is first created.
     @Override
@@ -92,7 +107,25 @@ public class Tutorial3 extends Activity implements SurfaceHolder.Callback {
         //auto play video when start
         is_playing_desired = true;
         nativePlay();
+
+	    //the following is used to initialize socket.io
+	    mSocket.on(mSocket.EVENT_CONNECT,onSocketioConnected);
+        mSocket.connect();
+        mSocket.emit("newUser");
     }
+
+    private Emitter.Listener onSocketioConnected = new Emitter.Listener(){
+        @Override
+        public void call(final Object... args){
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("io","socketio connected");
+                }
+            });
+        }
+    };
+
 
     protected void onSaveInstanceState (Bundle outState) {
         Log.d ("GStreamer", "Saving state, playing:" + is_playing_desired);

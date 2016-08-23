@@ -37,6 +37,9 @@ dependencies {
     compile files("$buildDir/libs/ndk-libs.jar")
     // Just debug info
     println("$buildDir/libs")
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/engine.io-client-0.7.0.jar')
 }
 
 // Before compiling our app, prepare NDK code

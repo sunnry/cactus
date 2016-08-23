@@ -1,2 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c9fb25fec3f47fc357ffa0a0cd62a7fb4b6c02f0">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_58eec8864a848da5d650f38f95d0cb0f610d86a2/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okhttp-ws-3.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="bd9b51a0188fc8f14bf840a0d326755545206116">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-ws-3.0.1_05bdbecea09717f643161b1512b4d4d3bfd825d9/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c03ab1995be209766f6aad2ef9c2cc4fe313054d">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7b9c38500105dc6932bb35571f488721c3173df0/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okio-1.6.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okio-1.6.0_1e3458229f792a90b2ab548a28048dae77952220/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/okhttp-3.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-3.0.1_4f8945f760db3792a5cad0d2a629dbb7ab06dcb3/classes.dex" />
+    </item>
+    <item
+        jar="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/libs/engine.io-client-0.7.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c1b1d30e2d2231b2eae1438a44943a409b976dac">
+        <dex dex="/home/tony/AndroidStudioProjects/cactus/cactus-a/app/build/intermediates/transforms/dex/debug/folders/1000/2/engine.io-client-0.7.0_cfaae9776787d39d23253033894c4fd13b44e0fe/classes.dex" />
+    </item>
+
+</items>
