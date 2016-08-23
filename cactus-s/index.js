@@ -13,6 +13,10 @@ io.sockets.on('connection',function(socket){
 		console.log('client has ready');
 	});
 	socket.emit('io server ready');
+
+	socket.on('control stream',function(data){
+		console.log('get client control stream');
+	});
 });
 
 
