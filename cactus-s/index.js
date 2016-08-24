@@ -10,14 +10,33 @@ app.get('/',function(req,res){
 io.sockets.on('connection',function(socket){
 	console.log("connected with one android client");
 
+	//this part is used to send message to android client
 	socket.on('Client Ready',function(data){
 		console.log('client has ready');
 		socket.emit('Server Ready');
 	});
 
-	socket.on('Control Stream',function(data){
-		console.log('get client control stream');
+	//this part is used to receive message from left control pad
+	socket.on('Left ControlPad Ready',function(data){
+		console.log('left control pad has ready');
+		socket.emit('Server Ready');
+		socket.on('xPower',function(data){
+			console.log('xPower:'+ data);
+		});
+		socket.on('yPower',function(data){
+			console.log('yPower:' + data);
+		});
 	});
+
+	//this part is used to receive message from right control pad
+	socket.on('Right ControlPad Ready',function(data){
+		console.log('right control pad has ready');
+		socket.emit('Server Ready');
+		socket.on('zPower',function(data){
+			console.log('zPower:' + data);
+		});
+	});
+
 });
 
 
