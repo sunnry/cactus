@@ -1,0 +1,44 @@
+var i2c = require('i2c');
+
+var receiveNum = 0;
+
+var address = 0x18;
+
+var device = new i2c(address,{device:'/dev/i2c-1'});
+
+device.setAddress(0x08);
+
+device.scan(
+        function(err, data) {
+                if(err) console.log('ERROR: ' + JSON.stringify(err));
+                console.log(JSON.stringify(data));
+        }
+);
+
+
+function handleTimeout() {
+          setTimeout(function() { communication(); }, 500 );
+}
+
+function communication() {
+
+        device.readBytes(null,1,function(err,buffer){
+                console.log(buffer[0]);
+
+                if(buffer[0] == 0){
+                        device.writeByte(1,function(err,res){}); //1 start
+                }else if(buffer[0] == 0x55){
+                        if(receiveNum == 9){
+                                device.writeByte(2,function(err,res){}); //2 stop
+                        }
+                        receiveNum ++;
+                }
+        });
+
+         handleTimeout();
+}
+
+handleTimeout();
+
+
+
