@@ -37,25 +37,15 @@ port.on('open',function(){
 port.on('data',function(data){
 
 	for(var i=0;i<data.length;i++){
-		//console.log(data[i]);
+		resCommand.append(String.fromCharCode(data[i]));
 		if(data[i]==0xA){
-			resCommand.append(String.fromCharCode(data[i]));
-			console.log('Data:'+ resCommand);
+			//console.log('Data:'+ resCommand);
+			console.log(resCommand);
 			resCommand.clear();
-		}else{
-			//console.log(data);
-			resCommand.append(String.fromCharCode(data[i]));
-			//resCommand.append(data[i]);	
 		}
 	}
-	
 
-//	console.log('DATA:' + data);
-	//console.log(data);
 	port.write("CMD1\r");
-//	port.write("HELLO\r");
-//	port.write("fuck\r");
-//	port.write("OFF\r");
 });
 
 port.on('close',function(err){
