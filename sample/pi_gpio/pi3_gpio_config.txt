@@ -1,0 +1,9 @@
+Install wiringPi
+  1.git clone git://git.drogon.net/wiringPi    //download wiringPi
+  2.#./build				       //build wiringPi
+  3.#gpio -v				       //get gpio and board basic information
+  4.#gpio readall			       //get all gpios information
+
+
+install node.js wiringPi
+#npm install wiring-pi
