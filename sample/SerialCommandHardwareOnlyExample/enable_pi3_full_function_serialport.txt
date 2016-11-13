@@ -1,0 +1,28 @@
+一：使能pi3 全功能串口
+1. sudo raspi-config  进入后expand filesystem和在advanced page页面使能serail, reboot.
+
+2. sudo vim /boot/config.txt   dtoverlay=pi3-disable-bt  关闭bluetooth,改好后 reboot.
+
+3. sudo vim /boot/cmdline.txt  去掉console=serail0,115200 或者 console=ttyAMA0,115200 关闭serial console
+
+
+PS:参考文档
+http://raspberrypi.stackexchange.com/questions/45570/how-do-i-make-serial-work-on-the-raspberry-pi3
+
+
+二：如果默认的serialport无法安装，怎么安装serialport模块
+如果无法安装serialport,很有可能的原因是node的版本太低，需要重新安装Node，并使用--unsafe-perm的方式安装serialport
+
+1.sudo wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+
+2.sudo apt-get remove nodejs
+
+3.sudo dpkg -i node_latest_armhf.deb
+
+4.sudo npm install --unsafe-perm -g serialport
+
+PS：参考文档
+新烧写的pi image 最要用sudo apt-get update; sudo apt-get dist-upgrade升级到最新的版本。
+http://usuaris.tinet.cat/sag/rspi3.htm
+http://basvdijk.com/install-the-latest-node-js-version-on-your-raspberry-pi/
+https://github.com/nodejs/node-gyp/issues/454

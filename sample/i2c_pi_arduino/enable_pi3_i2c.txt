@@ -1,0 +1,3 @@
+1.pi3 默认的i2c是没有开启的，运行 #sudo raspi-config 在advanced Options中使能i2c，使能后就可以在/dev下查到i2c-1设备
+
+2.sudo apt-get install i2c-tools i2c工具软件
