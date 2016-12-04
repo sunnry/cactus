@@ -225,6 +225,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QQIESPVA
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for deepshark\Board Information - deepshark_pcb.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for deepshark\Design Rule Check - deepshark_pcb.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
