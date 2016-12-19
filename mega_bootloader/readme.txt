@@ -16,3 +16,15 @@ from arduino board.
    add build.path = "path your hex path" to preferences.txt and then compile app in arduino ide,
 it will create hex files (examples: Blink.ino.hex and Blinkino.with_bootloader.hex) one with bootloader
 also, you write the hex file with bootloader use avrisp mkii using atmel studio, then ok.
+
+
+
+3. how to write arduino bootloader to atmega2560
+infact you do not need to write bootloader and arduino app seperately, you can write them all together with
+bootloader just like atmega1280, compile arduino app and burning the hex image with bootloader to atmega2560 
+with avrisp mkii.
+but you need be careful fuse setting:
+mega.bootloader.low_fuses=0xFF
+mega.menu.cpu.atmega2560.bootloader.high_fuses=0xD8
+mega.menu.cpu.atmega2560.bootloader.extended_fuses=0xFD
+   
