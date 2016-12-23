@@ -4,13 +4,13 @@ int val;
 int val1;
 int myangle1;
 //下面是servopulse函数部分(此函数意思:也就是說每次都是0.5ms高電平 1.98ms低電平 然後再0.52ms低電平 17ms延時也是低電平)
-void servopulse(int sp1,int val1)//定义一个脉冲函数
+void servopulse(int pin,int val1)//定义一个脉冲函数
 {
   //myangle1=map(val1,0,180,500,2480);
   myangle1=map(val1,0,180,1000,2000);
-  digitalWrite(sp1,HIGH);//将舵机接口电平至高
+  digitalWrite(pin,HIGH);//将舵机接口电平至高
   delayMicroseconds(myangle1);//延时脉宽值的微秒数
-  digitalWrite(sp1,LOW);//将舵机接口电平至低
+  digitalWrite(pin,LOW);//将舵机接口电平至低
   delay(20-val1/1000);
 }
 //servopulse函数部分到此结束
