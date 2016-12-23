@@ -1,0 +1,1 @@
+a example of showing how to use arduino mega to control esc.
