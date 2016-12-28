@@ -18,42 +18,48 @@ void servopulse(int pin,int val1)//定义一个脉冲函数
 void init_esc(int pin,int max_power,int mini_power){
   pinMode(pin,OUTPUT);
   //看电调说明书，设置油门行程时，一开始需要把遥控器打到最高点。i<=110大概是2杪多
-  for(int i=0;i<110;i++){
+  for(int i=0;i<=110;i++){
     servopulse(pin,max_power);
   }
 
   //等电机发出B-B两声后（就是两秒后，大概就是这里了）把油门打到最低点
-   for(int i=0;i<=55;i++){
-     servopulse(pin,mini_power);//引用脉冲函数
-   }
+  for(int i=0;i<=55;i++){
+    servopulse(pin,mini_power);//引用脉冲函数
+  }
 }
 
+//params:power power=16 1ms power=32 2ms
 void start_esc(int pin,int power){
   if((pin>=7) && (pin <=8)){ //timer4
     pinMode(pin,OUTPUT);
-    TCCR4B = TCCR4B & 0B11100000 | 0x4 | 0x8;
+    TCCR4B = TCCR4B & 0B11100000 | 0x5 | 0x18;  //16000000/1024/312=50
     OCR4A = 312;
     
     if(pin == 7){
-      TCCR4A = TCCR4A | 0B10100011;
+      TCCR4A = TCCR4A | 0B10100011;  //open timer4 B channel
       OCR4B = power;
     }else if(pin == 8){
-      TCCR4A = TCCR4A | 0B10001011;
+      TCCR4A = TCCR4A | 0B10001011;  //open timer4 C channel
       OCR4C = power;  
     }
   }
 }
 
 void setup() {
-  pinMode(8,OUTPUT);  //将8设置成输出，避免产生的PPM信号对8产生干扰
+  //pinMode(8,OUTPUT);  //如果只有B通道使用将8设置成输出，避免产生的PPM信号对8产生干扰
   init_esc(7,90,0);
-  
+  start_esc(7,16);
+
+  init_esc(8,120,0);
+  start_esc(8,18);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  /*
   for(int i =0;i<=32;i++){
     start_esc(7,68+i);
     delay(100);
   }
+  */
 }
