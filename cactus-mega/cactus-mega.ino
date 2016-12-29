@@ -10,6 +10,8 @@
 #include <Wire.h>
 #include "Kalman.h"
 
+#include "esc_control.h"
+
 #define RESTRICT_PITCH //comment out to restrict roll to +-90 deg instead
 
 #define arduinoLED 50   // Arduino LED on board
@@ -29,6 +31,9 @@ double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
 
 uint32_t timer;
 uint8_t i2cData[14]; // Buffer for I2C data
+
+esc_control *escLeft ;
+esc_control *escRight;
 
 void setup()
 {  
@@ -97,6 +102,11 @@ void setup()
   SCmd.addCommand("P",process_command);  // Converts two arguments to integers and echos them back 
   SCmd.addDefaultHandler(unrecognized);  // Handler for command that isn't matched  (says "What?") 
   Serial1.println("RES0"); 
+
+  escLeft = new esc_control(7);
+  escLeft->start_esc(17);
+  escRight = new esc_control(8);
+  escRight->start_esc(16);
 }
 
 void loop()
