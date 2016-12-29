@@ -4,9 +4,19 @@
 //该方式使用OCRnA作为PWM反转的TOP值，所以A通道无法输出可调PWM，B通道和C通道可以借助A通道实现
 //频率可调的PWM输出，从而驱动esc
 
+//电机需要以INIT_ESC_MAX_POWER转动一次，然后再以ESC_SELF_TEST_POWER转动一次，才能证明电调初始化成功，否则需要控制板复位重新
+//初始化电调，在电调不掉电的情况下，一般复位重新初始化都能成功。
 esc_control::esc_control(int pin){
   pinNum = pin;
-  init_esc(30,0);
+  //config esc 
+  init_esc(INIT_ESC_MAX_POWER,INIT_ESC_MIN_POWER);
+
+  //self test esc control
+  start_esc(ESC_SELF_TEST_POWER);
+  for(int i=0;i<30;i++){
+    delay(200);
+  }
+  start_esc(ESC_STOP_POWER);
 };
 
 //下面是servopulse函数部分(此函数意思:也就是說每次都是0.5ms高電平 1.98ms低電平 然後再0.52ms低電平 17ms延時也是低電平)

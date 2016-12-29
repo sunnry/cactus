@@ -32,8 +32,9 @@ double kalAngleX, kalAngleY; // Calculated angle using a Kalman filter
 uint32_t timer;
 uint8_t i2cData[14]; // Buffer for I2C data
 
-esc_control *escLeft ;
-esc_control *escRight;
+//esc control handler
+esc_control *escLeft ;  //pin7
+esc_control *escRight;  //pin8
 
 void setup()
 {  
@@ -103,10 +104,12 @@ void setup()
   SCmd.addDefaultHandler(unrecognized);  // Handler for command that isn't matched  (says "What?") 
   Serial1.println("RES0"); 
 
-  escLeft = new esc_control(7);
-  escLeft->start_esc(17);
-  escRight = new esc_control(8);
-  escRight->start_esc(16);
+  //init esc
+  //set LEFT_ESC_PIN and RIGHT_ESC_PIN to OUTPUT mode to prevent bother each other.
+  pinMode(LEFT_ESC_PIN,OUTPUT);
+  pinMode(RIGHT_ESC_PIN,OUTPUT);
+  escLeft = new esc_control(LEFT_ESC_PIN);
+  escRight = new esc_control(RIGHT_ESC_PIN);
 }
 
 void loop()

@@ -8,6 +8,14 @@
 #include "WProgram.h"
 #endif
 
+#define LEFT_ESC_PIN  7
+#define RIGHT_ESC_PIN 8
+
+#define INIT_ESC_MAX_POWER  25
+#define INIT_ESC_MIN_POWER  0
+
+#define ESC_SELF_TEST_POWER 16
+#define ESC_STOP_POWER 15
 
 class esc_control {
 public:
