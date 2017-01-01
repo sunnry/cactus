@@ -11,6 +11,7 @@
 #include "Kalman.h"
 #include "MsTimer2.h"
 #include "esc_control.h"
+#include "ReadSensor.h"
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -37,10 +38,14 @@ uint8_t i2cData[14]; // Buffer for I2C data
 esc_control *escLeft ;  //pin7
 esc_control *escRight;  //pin8
 
+//sensor related
+ReadSensor *sensors;
+double batVoltage;
+
 //response pi3 the status data of rov
 //STATUS0: response to pi3 about rov status
 void InfoPiPIDStatus(){
-  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.println(kalAngleY);
+  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.print(kalAngleY);Serial1.print(",");Serial1.println(batVoltage);
 }
 
 void ContinueInformPi3(){
@@ -122,6 +127,8 @@ void setup()
   escLeft = new esc_control(LEFT_ESC_PIN);
   escRight = new esc_control(RIGHT_ESC_PIN);
 
+  //read battery voltage
+  batVoltage = sensors->ReadBatteryVoltage();
   //setup customer commands
   SetupSerialCommands();
 }
