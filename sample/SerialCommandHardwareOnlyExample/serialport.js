@@ -41,11 +41,12 @@ port.on('data',function(data){
 		if(data[i]==0xA){
 			//console.log('Data:'+ resCommand);
 			console.log(resCommand);
+			if(resCommand == "RES00:OK\r\n"){
+				 port.write("CMD3 OK\r");
+			}
 			resCommand.clear();
 		}
 	}
-
-	port.write("CMD1\r");
 });
 
 port.on('close',function(err){
