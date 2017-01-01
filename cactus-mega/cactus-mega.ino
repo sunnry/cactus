@@ -9,12 +9,13 @@
 
 #include <Wire.h>
 #include "Kalman.h"
-
+#include "MsTimer2.h"
 #include "esc_control.h"
 
-#define RESTRICT_PITCH //comment out to restrict roll to +-90 deg instead
+#define  MSTIMER2_INTERVAL_LEVEL1  150
+#define  MSTIMER2_INTERVAL_LEVEL2  1000
 
-#define arduinoLED 50   // Arduino LED on board
+#define RESTRICT_PITCH //comment out to restrict roll to +-90 deg instead
 
 SerialCommand SCmd;   // The demo SerialCommand object
 
@@ -36,11 +37,37 @@ uint8_t i2cData[14]; // Buffer for I2C data
 esc_control *escLeft ;  //pin7
 esc_control *escRight;  //pin8
 
+//response pi3 the status data of rov
+//STATUS0: response to pi3 about rov status
+void InfoPiPIDStatus(){
+  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.println(kalAngleY);
+}
+
+void ContinueInformPi3(){
+  Serial1.println("RES00:OK");
+}
+
+void SetupSerialCommands(){
+  //CMD0: balance self control mode.                       return RES0
+  //CMD1: user control mode                                return RES1
+  //CMD2: turn light on or off                             return RES2
+  //CMD3: if receive this command, the Pi has been ok      return RES3
+  //RES00:OK : info pi3 control board has ready
+  //if received command can not been recognized, return 'UNKNOWN CMD' to pi3
+  SCmd.addCommand("CMD0",onSelfBalance);    // rov self control mode
+  SCmd.addCommand("CMD1",onUserControl);    // rov user control mode
+  SCmd.addCommand("CMD2",onLedControl);     // use led to inform user board status
+  SCmd.addCommand("CMD3",onServerStatus);
+  SCmd.addDefaultHandler(unrecognized);  // Handler for command that isn't matched  (says "What?") 
+  //send RES00 to pi3 to inform pi3 control board has been ok
+  Serial1.println("RES00:OK");
+  //if after 1s the pi3 still do not response,send RES00 again and until pi3 response will stop 
+  MsTimer2::set(MSTIMER2_INTERVAL_LEVEL2,ContinueInformPi3);
+  MsTimer2::start();
+}
+
 void setup()
 {  
-  pinMode(arduinoLED,OUTPUT);      // Configure the onboard LED for output
-  digitalWrite(arduinoLED,LOW);    // default to LED off
-
   Serial1.begin(115200); 
   Wire.begin();
 #if ARDUINO >= 157
@@ -58,10 +85,9 @@ void setup()
 
   while (i2cRead(0x75, i2cData, 1));
   if (i2cData[0] != 0x68) { // Read "WHO_AM_I" register
-    Serial.print(F("Error reading sensor"));
+    Serial1.print(F("Error reading sensor"));
     while (1);
   }
-
   delay(100); // Wait for sensor to stabilize
 
   /* Set kalman and gyro starting angle */
@@ -87,22 +113,7 @@ void setup()
   gyroYangle = pitch;
   compAngleX = roll;
   compAngleY = pitch;
-
   timer = micros();
-  
-  // Setup callbacks for SerialCommand commands
-  //CMD0: balance self control.
-  //CMD1: user control
-  //CMD2: turn light on or off
-  //RES0: control board has ready
-  //RES1: receive command ok
-  //RES2: unknow command
-  SCmd.addCommand("CMD0",onSelfBalance);       // Turns LED on
-  SCmd.addCommand("CMD1",onUserControl);        // Turns LED off
-  SCmd.addCommand("CMD2",onLedControl);     // Echos the string argument back
-  SCmd.addCommand("P",process_command);  // Converts two arguments to integers and echos them back 
-  SCmd.addDefaultHandler(unrecognized);  // Handler for command that isn't matched  (says "What?") 
-  Serial1.println("RES0"); 
 
   //init esc
   //set LEFT_ESC_PIN and RIGHT_ESC_PIN to OUTPUT mode to prevent bother each other.
@@ -110,6 +121,9 @@ void setup()
   pinMode(RIGHT_ESC_PIN,OUTPUT);
   escLeft = new esc_control(LEFT_ESC_PIN);
   escRight = new esc_control(RIGHT_ESC_PIN);
+
+  //setup customer commands
+  SetupSerialCommands();
 }
 
 void loop()
@@ -189,8 +203,7 @@ void loop()
 
 void onSelfBalance()
 {
-  Serial1.println("LED on"); 
-  digitalWrite(arduinoLED,HIGH);  
+  Serial1.println("RES0:OK"); 
 }
 
 void onUserControl()
@@ -199,50 +212,35 @@ void onUserControl()
   arg = SCmd.next();    // Get the next argument from the SerialCommand object buffer
   if (arg != NULL)      // As long as it existed, take it
   {
-    Serial1.println(arg); 
+    //Serial1.println(arg); 
   }
-  Serial1.print("RES1:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.println(kalAngleY);
+  Serial1.println("RES1:OK");
 }
 
+//this functiion must cowork with hardware
 void onLedControl()
 {
-  Serial1.println("LED off"); 
-  digitalWrite(arduinoLED,LOW);
+  Serial1.println("RES2:OK");
 }
 
-void process_command()    
+void onServerStatus()
 {
-  int aNumber;  
-  char *arg; 
-
-  Serial.println("We're in process_command"); 
-  arg = SCmd.next(); 
-  if (arg != NULL) 
-  {
-    aNumber=atoi(arg);    // Converts a char string to an integer
-    Serial.print("First argument was: "); 
-    Serial.println(aNumber); 
-  } 
-  else {
-    Serial.println("No arguments"); 
+  //callback function when pi3 inform control board about pi3 status
+  char *arg;
+  arg = SCmd.next();
+  if(arg != NULL){
+    if(strcmp(arg,"OK") == 0){
+      MsTimer2::stop();
+      Serial1.println("RES3:OK");
+      MsTimer2::set(MSTIMER2_INTERVAL_LEVEL1,InfoPiPIDStatus);
+      MsTimer2::start();
+    }
   }
-
-  arg = SCmd.next(); 
-  if (arg != NULL) 
-  {
-    aNumber=atol(arg); 
-    Serial.print("Second argument was: "); 
-    Serial.println(aNumber); 
-  } 
-  else {
-    Serial.println("No second argument"); 
-  }
-
 }
 
 // This gets set as the default handler, and gets called when no other command matches. 
 void unrecognized()
 {
-  Serial1.println("RES2"); //not known command 
+  Serial1.println("UNKNOWN CMD"); //not known command 
 }
 
