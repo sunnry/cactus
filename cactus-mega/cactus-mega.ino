@@ -13,6 +13,7 @@
 #include "esc_control.h"
 #include "ReadSensor.h"
 #include "dht11.h"
+#include "ServoControl.h"
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -48,6 +49,9 @@ dht11 DHT11;
 float humidity;
 float temperature;
 int dht_access_interval;
+
+//servo related
+ServoControl *p35Servo;
 
 //response pi3 the status data of rov
 //STATUS0: response to pi3 about rov status
@@ -144,7 +148,11 @@ void setup()
     humidity = DHT11.humidity;
     temperature = DHT11.temperature;
   }
-    
+
+  //first run servo to self check servo
+  p35Servo = new ServoControl(SERVO1_PIN_NUM);
+  p35Servo->setServoPos(0);
+
   //setup customer commands
   SetupSerialCommands();
 }
