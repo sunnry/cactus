@@ -12,6 +12,7 @@
 #include "MsTimer2.h"
 #include "esc_control.h"
 #include "ReadSensor.h"
+#include "dht11.h"
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -42,10 +43,16 @@ esc_control *escRight;  //pin8
 ReadSensor *sensors;
 double batVoltage;
 
+//dht11 related
+dht11 DHT11;
+float humidity;
+float temperature;
+int dht_access_interval;
+
 //response pi3 the status data of rov
 //STATUS0: response to pi3 about rov status
 void InfoPiPIDStatus(){
-  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.print(kalAngleY);Serial1.print(",");Serial1.println(batVoltage);
+  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.print(kalAngleY);Serial1.print(",");Serial1.print(batVoltage);Serial1.print(",");Serial1.print(humidity);Serial1.print(",");Serial1.println(temperature);
 }
 
 void ContinueInformPi3(){
@@ -127,8 +134,17 @@ void setup()
   escLeft = new esc_control(LEFT_ESC_PIN);
   escRight = new esc_control(RIGHT_ESC_PIN);
 
-  //read battery voltage
+  //first time read battery voltage
   batVoltage = sensors->ReadBatteryVoltage();
+
+  //fist time read DHT11 data
+  dht_access_interval = 0;
+  int chk = DHT11.read(DHT11_DATA_PIN);
+  if(chk == DHTLIB_OK){
+    humidity = DHT11.humidity;
+    temperature = DHT11.temperature;
+  }
+    
   //setup customer commands
   SetupSerialCommands();
 }
@@ -203,6 +219,23 @@ void loop()
     gyroXangle = kalAngleX;
   if (gyroYangle < -180 || gyroYangle > 180)
     gyroYangle = kalAngleY;
+
+  //continue read battery voltage in loop
+  batVoltage = sensors->ReadBatteryVoltage();
+
+
+  //read dht11 value continue
+  dht_access_interval ++;
+  if(dht_access_interval >= 4000){
+    dht_access_interval = 0;
+    int chk = DHT11.read(DHT11_DATA_PIN);
+    if(chk == DHTLIB_OK){
+      humidity = DHT11.humidity;
+      temperature = DHT11.temperature;
+    }else{
+      Serial1.println("dht11 read failed");
+    }
+  }
 
   //get command from serial and process command
   SCmd.readSerial();

@@ -14,10 +14,7 @@ class ReadSensor{
 public:
   ReadSensor();
 
-  double ReadBatteryVoltage(void);
-
-  double ReadDHT11(void);
- 
+  double ReadBatteryVoltage(void); 
 };
 
 #endif

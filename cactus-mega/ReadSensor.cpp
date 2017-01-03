@@ -11,7 +11,4 @@ double ReadSensor::ReadBatteryVoltage(void){
   return voltage;
 }
 
-double ReadSensor::ReadDHT11(void){
-  return 0;
-}
 
