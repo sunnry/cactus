@@ -7,7 +7,7 @@ ReadSensor::ReadSensor(){
 
 double ReadSensor::ReadBatteryVoltage(void){
   int value = analogRead(BATTERY_VOLTAGE_PIN);
-  double voltage = value * (5.0/1024.0);
+  double voltage = 4 * value * (5.0/1024.0);
   return voltage;
 }
 
