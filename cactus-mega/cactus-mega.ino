@@ -15,6 +15,7 @@
 #include "dht11.h"
 #include "ServoControl.h"
 #include "CurrentCheck.h"
+#include "pwm_light.h"
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -57,6 +58,9 @@ ServoControl *p35Servo;
 //CurrentCheck related
 CurrentCheck *currentCheck;
 double mcuCurrent;
+
+//pwm light related
+PwmLight *lights;
 
 //response pi3 the status data of rov
 //STATUS0: response to pi3 about rov status
@@ -161,6 +165,14 @@ void setup()
   //check current status
   currentCheck = new CurrentCheck();
   mcuCurrent = currentCheck->CheckControlMCUPart();
+
+
+  //pwm light handler
+  lights = new PwmLight();
+  lights->setLightLumination(PWM_LIGHT_ONE,100);
+  lights->setLightLumination(PWM_LIGHT_TWO,100);
+  lights->setLightLumination(PWM_LIGHT_THREE,100);
+  //lights->setLightLumination(PWM_LIGHT_FOUR,100);
   
   //setup customer commands
   SetupSerialCommands();
