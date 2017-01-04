@@ -14,6 +14,7 @@
 #include "ReadSensor.h"
 #include "dht11.h"
 #include "ServoControl.h"
+#include "CurrentCheck.h"
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -53,10 +54,14 @@ int dht_access_interval;
 //servo related
 ServoControl *p35Servo;
 
+//CurrentCheck related
+CurrentCheck *currentCheck;
+double mcuCurrent;
+
 //response pi3 the status data of rov
 //STATUS0: response to pi3 about rov status
 void InfoPiPIDStatus(){
-  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.print(kalAngleY);Serial1.print(",");Serial1.print(batVoltage);Serial1.print(",");Serial1.print(humidity);Serial1.print(",");Serial1.println(temperature);
+  Serial1.print("STATUS0:");Serial1.print(kalAngleX);Serial1.print(",");Serial1.print(kalAngleY);Serial1.print(",");Serial1.print(batVoltage);Serial1.print(",");Serial1.print(humidity);Serial1.print(",");Serial1.print(temperature);Serial1.print(",");Serial1.println(mcuCurrent);
 }
 
 void ContinueInformPi3(){
@@ -153,6 +158,10 @@ void setup()
   p35Servo = new ServoControl(SERVO1_PIN_NUM);
   p35Servo->setServoPos(0);
 
+  //check current status
+  currentCheck = new CurrentCheck();
+  mcuCurrent = currentCheck->CheckControlMCUPart();
+  
   //setup customer commands
   SetupSerialCommands();
 }
@@ -244,6 +253,9 @@ void loop()
       Serial1.println("dht11 read failed");
     }
   }
+
+  //continue check current
+  mcuCurrent = currentCheck->CheckControlMCUPart();
 
   //get command from serial and process command
   SCmd.readSerial();
