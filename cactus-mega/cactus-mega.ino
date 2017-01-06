@@ -17,7 +17,7 @@
 #include "CurrentCheck.h"
 #include "pwm_light.h"
 
-#define  PWM_LIGHT_TEST  1
+//#define  PWM_LIGHT_TEST  1
 
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
@@ -83,12 +83,14 @@ void SetupSerialCommands(){
   //CMD1: user control mode                                return RES1
   //CMD2: turn light on or off                             return RES2
   //CMD3: if receive this command, the Pi has been ok      return RES3
+  //CMD4: set pwm light lumination                         return RES4
   //RES00:OK : info pi3 control board has ready
   //if received command can not been recognized, return 'UNKNOWN CMD' to pi3
   SCmd.addCommand("CMD0",onSelfBalance);    // rov self control mode
   SCmd.addCommand("CMD1",onUserControl);    // rov user control mode
   SCmd.addCommand("CMD2",onLedControl);     // use led to inform user board status
   SCmd.addCommand("CMD3",onServerStatus);
+  SCmd.addCommand("CMD4",onPwmLightSet);
   SCmd.addDefaultHandler(unrecognized);  // Handler for command that isn't matched  (says "What?") 
   //send RES00 to pi3 to inform pi3 control board has been ok
   Serial1.println("RES00:OK");
@@ -175,10 +177,6 @@ void setup()
 
   //pwm light handler
   lights = new PwmLight();
-  lights->setLightLumination(PWM_LIGHT_ONE,100);
-  lights->setLightLumination(PWM_LIGHT_TWO,100);
-  lights->setLightLumination(PWM_LIGHT_THREE,100);
-  //lights->setLightLumination(PWM_LIGHT_FOUR,100);
   
   //setup customer commands
   SetupSerialCommands();
@@ -325,6 +323,20 @@ void onServerStatus()
       Serial1.println("RES3:OK");
       MsTimer2::set(MSTIMER2_INTERVAL_LEVEL1,InfoPiPIDStatus);
       MsTimer2::start();
+    }
+  }
+}
+
+void onPwmLightSet(){
+  char *arg;
+  arg = SCmd.next();
+  if(arg != NULL){
+    int ret = atoi(arg);
+    if(ret >=0 && ret <= 255){
+      lights->setLightLumination(PWM_LIGHT_ONE,ret);
+      lights->setLightLumination(PWM_LIGHT_TWO,ret);
+      lights->setLightLumination(PWM_LIGHT_THREE,ret);
+      Serial1.println("RES4:OK");
     }
   }
 }
