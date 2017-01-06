@@ -17,8 +17,14 @@
 #include "CurrentCheck.h"
 #include "pwm_light.h"
 
+#define  PWM_LIGHT_TEST  1
+
 #define  MSTIMER2_INTERVAL_LEVEL1  150
 #define  MSTIMER2_INTERVAL_LEVEL2  1000
+
+#ifdef PWM_LIGHT_TEST
+int pwm_loop = 0;
+#endif
 
 #define RESTRICT_PITCH //comment out to restrict roll to +-90 deg instead
 
@@ -268,6 +274,19 @@ void loop()
 
   //continue check current
   mcuCurrent = currentCheck->CheckControlMCUPart();
+
+
+#ifdef  PWM_LIGHT_TEST
+    if(pwm_loop <= 255){
+      lights->setLightLumination(PWM_LIGHT_ONE,pwm_loop);
+      lights->setLightLumination(PWM_LIGHT_TWO,pwm_loop);
+      lights->setLightLumination(PWM_LIGHT_THREE,pwm_loop);
+      pwm_loop ++;
+    }
+
+    if(pwm_loop == 255)
+      pwm_loop = 0;
+#endif
 
   //get command from serial and process command
   SCmd.readSerial();
