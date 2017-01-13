@@ -6,13 +6,13 @@
 2.镜像备份
   方法一：
    用dd,在imac下， #sudo dd if=/dev/disk1  of=my_image.img, my_image.img的大小基本上就是
-整个sd卡的大小。
+整个sd卡的大小，恢复可以用#sudo dd bs=1m if=my_image.img of=/dev/disk1
   方法二：
    用Win32DiskImager来备份，可以用其中的read功能，来备份镜像大小，读出来的大小也是基本上
 就是整个sd卡的大小，恢复也用Win32DiskImager来恢复。
 
 
-在恢复镜像前，如有问题，最好用SDFormatter将卡格式化一下。
+在恢复镜像前，如有问题，最好用SDFormatter将卡格式化一下,尽量建议用win32diskimager备份和恢复，很好用。
 
 PS:
 http://blog.csdn.net/sinat_35287833/article/details/51702256
