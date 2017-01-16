@@ -3,6 +3,7 @@ Install wiringPi
   2.#./build				       //build wiringPi
   3.#gpio -v				       //get gpio and board basic information
   4.#gpio readall			       //get all gpios information
+wiringPi和node.js中的wiring-Pi相同管脚使用的管脚编号不同，wiringPi使用的是BCM定义。
 
 
 install node.js wiringPi
