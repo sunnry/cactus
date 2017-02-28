@@ -1,9 +1,9 @@
 #ifndef _MAIN_H
  #define _MAIN_H
 
-#define MOTORADRESSE      4   // BLCD的地址 (1-4)
+#define MOTORADRESSE      2   // BLCD的地址 (1-4)
 #define MANUELL_PWM       30  // PWM的值: 0-255
-#define TEST_MANUELL      30  // 测试硬件  值: 0-255 (PWM)
+#define TEST_MANUELL      0//30  // 测试硬件  值: 0-255 (PWM)
 #define TEST_SCHUB        0	  // 测试或正常模式       值: 0 = 正常 1 = 测试
 #define POLANZAHL        12   // 磁铁级数,仅用在输出速度的调试上
 #define MAX_PWM         255

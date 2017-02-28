@@ -3,6 +3,10 @@
 //#define TIMER_RELOAD_VALUE    125
 #endif
 
+#if defined (__AVR_ATmega8A__)
+#define TIMER_TEILER		CK8
+#endif
+
 #define TIM0_START       TIMSK |= 0x01      // T/C0 溢出中断使能                  
 #define TIMER2_INT_ENABLE   TIMSK |= 0x40   // T/C1 溢出中断使能                     
 

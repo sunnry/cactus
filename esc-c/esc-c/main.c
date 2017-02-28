@@ -185,7 +185,7 @@ int main (void)
     DDRC  = 0x08;//PC3输出，控制红色led 
     PORTC = 0x08;//PC3输出高电平，红色led亮
     DDRD  = 0xBA;//10111010A-B-C-配置为输出，TXD,LED_GRN(PD7)配置为输出,MITTEL/RXD/INT0为输入
-    PORTD = 0x80;//LED_GRN高电平，绿色灯亮 
+    PORTD = 0x00;//LED_GRN低电平，绿色灯灭 
     DDRB  = 0x0E;////A+B+C+配置为输出,其他为输入，ppm的ICP为输入
     PORTB = 0x31;//I2C总线(SDA/SCL)为高电平，ICP上拉电阻使能,其他低电平，因为有三极管截止，所以p沟道不导通
     
@@ -194,15 +194,15 @@ int main (void)
     sei ();//打开全局中断
     
     //绿灯闪烁次数标识的电机地址，用于4轴的4个电调判断
-    for(test=0;test<5;test++)
+    for(test=0;test<=MOTORADRESSE;test++)
         {
-        if(test == MOTORADRESSE) PORTD |= GRUEN;//绿灯亮
-        Delay_ms(150);
+        PORTD |= GRUEN;//绿灯亮
+        Delay_ms(50);
         PORTD &= ~GRUEN;//绿灯灭 
-        Delay_ms(250);
+        Delay_ms(50);
         }	
 
-    Delay_ms(500);
+    Delay_ms(100);
    
     //UART_Init();
     PWM_Init();	
