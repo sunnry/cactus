@@ -135,7 +135,7 @@ unsigned char SollwertErmittlung(void) //设定值的测量值
 //############################################################################
 {
     static unsigned int sollwert = 0;
-    //unsigned int ppm;
+    unsigned int ppm;
     if(!I2C_Timeout)   // bei Erreichen von 0 ist der Wert ung黮tig
         {
         if(SIO_Timeout)  // es gibt g黮tige SIO-Daten
@@ -143,7 +143,6 @@ unsigned char SollwertErmittlung(void) //设定值的测量值
             //sollwert =  (MAX_PWM * (unsigned int) SIO_Sollwert) / 200;  // skalieren auf 0-200 = 0-255
             }
         else
-		/*
             if(PPM_Timeout)  // es gibt g黮tige PPM-Daten
                 {
                 ppm = PPM_Signal;
@@ -157,10 +156,10 @@ unsigned char SollwertErmittlung(void) //设定值的测量值
                 PORTC &= ~ROT;
                 }
             else   // Kein g黮tiger Sollwert
-                {*/
+                {
                 if(!TEST_SCHUB) { if(sollwert) sollwert--; }   
                 PORTC |= ROT; 
-                /*}*/
+                }
 			
         }
     else // I2C-Daten sind g黮tig
@@ -227,7 +226,7 @@ int main (void)
 
     MinUpmPulse = SetDelay(10);
     //DebugOut.Analog[1] = 1;
-    //PPM_Signal = 0;
+    PPM_Signal = 0;
 
     // zum Test der Hardware; Motor dreht mit konstanter Drehzahl ohne Regelung///测试硬件,马达转速不受控制
     if(TEST_MANUELL)    Anwerfen(TEST_MANUELL);  // kommt von dort nicht wieder//到再次没有重建时
@@ -300,8 +299,8 @@ int main (void)
                 DrehzahlMessTimer = SetDelay(10);
                 SIO_Drehzahl = (6 * CntKommutierungen) / (POLANZAHL / 2);//管子换向
                 CntKommutierungen = 0;
-                //if(PPM_Timeout == 0) // keine PPM-Signale
-                //ZeitZumAdWandeln = 1;
+                if(PPM_Timeout == 0) // keine PPM-Signale
+					ZeitZumAdWandeln = 1;
                 }
 
 
