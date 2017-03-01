@@ -41,7 +41,8 @@ C_SRCS +=  \
 ../main.c \
 ../PPM_Decode.c \
 ../timer0.c \
-../twislave.c
+../twislave.c \
+../uart.c
 
 
 PREPROCESSING_SRCS += 
@@ -56,7 +57,8 @@ BLMC.o \
 main.o \
 PPM_Decode.o \
 timer0.o \
-twislave.o
+twislave.o \
+uart.o
 
 OBJS_AS_ARGS +=  \
 analog.o \
@@ -64,7 +66,8 @@ BLMC.o \
 main.o \
 PPM_Decode.o \
 timer0.o \
-twislave.o
+twislave.o \
+uart.o
 
 C_DEPS +=  \
 analog.d \
@@ -72,7 +75,8 @@ BLMC.d \
 main.d \
 PPM_Decode.d \
 timer0.d \
-twislave.d
+twislave.d \
+uart.d
 
 C_DEPS_AS_ARGS +=  \
 analog.d \
@@ -80,7 +84,8 @@ BLMC.d \
 main.d \
 PPM_Decode.d \
 timer0.d \
-twislave.d
+twislave.d \
+uart.d
 
 OUTPUT_FILE_PATH +=esc-c.elf
 
@@ -93,6 +98,8 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 LIB_DEP+= 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -10,7 +10,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #include "main.h"
-//#include "uart.h"
+#include "uart.h"
 
 #define MAX_SENDE_BUFF     100
 #define MAX_EMPFANGS_BUFF  100

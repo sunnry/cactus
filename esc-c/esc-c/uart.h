@@ -50,6 +50,14 @@ extern struct str_DebugOut    DebugOut;
 #   define INT_VEC_TX  SIG_UART_TRANS
 #endif
 
+#if defined (__AVR_ATmega8A__)
+	#define USR UCSRA
+	#define UCR UCSRB
+	#define UBRR UBRRL
+	#define EICR EICRB
+   #define INT_VEC_RX  USART_RXC_vect
+   #define INT_VEC_TX  USART_TXC_vect
+#endif
 
 #if defined (__AVR_ATmega32__)
 #	define USR UCSRA

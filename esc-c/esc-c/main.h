@@ -11,7 +11,7 @@
 #define MIN_PPM          10   // PPM-Signal开关的约束
 #define FILTER_PPM        7   // 多少个PPM信号进行过滤(值0~30)
 
-#define SIO_DEBUG         0   // 测试值在串行接口输出
+#define SIO_DEBUG         1   // 测试值在串行接口输出
 #define X3D_SIO           1	  // serielles Protokoll des X3D (38400Bd) Achtung: dann muss SIO_DEBUG = 0 sein
 //在X3D的串行协议（38400Bd）注：必须SIO_DEBUG = 0
 
@@ -43,7 +43,7 @@
 #include "twislave.h"
 #include "old_macros.h"
 #include "analog.h"
-//#include "uart.h"
+#include "uart.h"
 #include "timer0.h"
 #include "BLMC.h"
 

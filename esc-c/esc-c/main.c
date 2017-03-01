@@ -203,7 +203,7 @@ int main (void)
 
     Delay_ms(100);
    
-    //UART_Init();
+    UART_Init();
     PWM_Init();	
 
     //InitIC2_Slave(0x50);
@@ -273,8 +273,8 @@ int main (void)
             if(SIO_DEBUG)
                 {
                 //DebugAusgaben();  // welche Werte sollen angezeigt werden?
-                //if(!UebertragungAbgeschlossen)  SendUart(); 
-                //else DatenUebertragung();
+                if(!UebertragungAbgeschlossen)  SendUart(); 
+                else DatenUebertragung();
                 }
             // Berechnen des Mittleren Stroms zur (langsamen) Strombegrenzung计算现在的平均电流（缓慢的）电流限制
             if(CheckDelay(MittelstromTimer))   
