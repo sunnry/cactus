@@ -188,7 +188,6 @@ int main (void)
     DDRB  = 0x0E;////A+B+C+配置为输出,其他为输入，ppm的ICP为输入
     PORTB = 0x31;//I2C总线(SDA/SCL)为高电平，ICP上拉电阻使能,其他低电平，因为有三极管截止，所以p沟道不导通
     
-    //UART_Init();
     Timer0_Init();
     sei ();//打开全局中断
     
@@ -206,7 +205,7 @@ int main (void)
     UART_Init();
     PWM_Init();	
 
-    //InitIC2_Slave(0x50);
+    InitIC2_Slave(0x50);
     InitPPM();
 
     Blink             = SetDelay(101);    

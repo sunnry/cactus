@@ -17,7 +17,13 @@ void InitIC2_Slave(uint8_t adr)
     //TWAR = 0b00001000; //Ç°
     //TWAR = 0b00001010; //ºó
     //TWAR = 0b00001100; //×ó
-    TWAR = 0b00001110; //ÓÒ
+	/*
+	The upper seven bits of TWAR are the address to which the 2-wire Serial Interface will respond when
+	addressed by a Master (TWAR.TWA[6:0]). If the LSB of TWAR is written to TWAR.TWGCI=1, the TWI will
+	respond to the general call address (0x00), otherwise it will ignore the general call address.
+	*/
+	
+    TWAR = 0b00001110; // i2c slave address 0x7
     TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWIE) | (1<<TWEA);
 }
 
