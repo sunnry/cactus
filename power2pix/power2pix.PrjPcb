@@ -140,6 +140,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JCFOUQFR
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for power2pix\Board Information - power2pix_pcb.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
