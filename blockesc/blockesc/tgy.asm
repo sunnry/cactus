@@ -50,7 +50,7 @@
 ;
 ;-- Device ----------------------------------------------------------------
 ;
-;.include "m8def.inc"
+.include "m8def.inc"
 ;
 ; 8K Bytes of In-System Self-Programmable Flash
 ; 512 Bytes EEPROM
@@ -78,9 +78,6 @@
 ;
 ;-- Board -----------------------------------------------------------------
 ;
-#define blueesc_esc
-#define MOTOR_ID	0
-
 ; The following only works with avra or avrasm2.
 ; For avrasm32, just comment out all but the include you need.
 #if defined(afro_esc)
