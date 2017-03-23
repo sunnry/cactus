@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "blockesc", "blockesc\blockesc.asmproj", "{D94E88BB-A1E8-450D-B871-9B8C105DEB3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D94E88BB-A1E8-450D-B871-9B8C105DEB3B}.Debug|AVR.ActiveCfg = Debug|AVR
+		{D94E88BB-A1E8-450D-B871-9B8C105DEB3B}.Debug|AVR.Build.0 = Debug|AVR
+		{D94E88BB-A1E8-450D-B871-9B8C105DEB3B}.Release|AVR.ActiveCfg = Release|AVR
+		{D94E88BB-A1E8-450D-B871-9B8C105DEB3B}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
