@@ -78,7 +78,7 @@
 ;
 ;-- Board -----------------------------------------------------------------
 ;
-#define blueesc_esc
+#define blockesc_esc
 #define MOTOR_ID	0
 
 ; The following only works with avra or avrasm2.
@@ -97,6 +97,8 @@
 #include "birdie70a.inc"	; Birdie 70A with all nFETs (INT0 PWM)
 #elif defined(blueesc_esc)
 #include "blueesc.inc"	; Blue Robotics BlueESC (ICP PWM, I2C)
+#elif defined(blockesc_esc)
+#include "blockesc.inc"	; Block Robotics BlockESC (ICP PWM, I2C)
 #elif defined(mkblctrl1_esc)
 #include "mkblctrl1.inc"	; MK BL-Ctrl v1.2 (ICP PWM, I2C, UART, high side PWM, sense hack)
 #elif defined(bs_esc)
