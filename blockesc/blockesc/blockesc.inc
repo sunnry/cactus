@@ -1,6 +1,6 @@
 ;*****************************************
-;* BlockESC V3.0                            *
-;* 2014-08-26                            *
+;* BlockESC V3.0                         *
+;* 2017-03-24                            *
 ;* Fuses should be lfuse=0x3f hfuse=0xca *
 ;*****************************************
 
@@ -26,7 +26,7 @@
 .equ	CpFET		= 1
 .equ	rcp_in		= 0	;i r/c pulse input
 
-.equ	INIT_PB		= (1<<ApFET)+(1<<BpFET)+(1<<CpFET)
+.equ	INIT_PB		= 0
 .equ	DIR_PB		= (1<<ApFET)+(1<<BpFET)+(1<<CpFET)
 
 .equ	ApFET_port	= PORTB
@@ -52,7 +52,7 @@
 .equ	INIT_PC		= (1<<i2c_clk)+(1<<i2c_data)+(1<<red_led)
 .equ	DIR_PC		= (1<<red_led)
 
-.equ	adc_refs	= (0<<REFS1)+(0<<REFS0)	; Need 5V ref. of temp. will overflow
+.equ	adc_refs	= (0<<REFS0)	; Need 5V ref. of temp. will overflow
 
 .MACRO RED_on
 	sbi	PORTC, red_led
