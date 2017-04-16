@@ -124,7 +124,41 @@ GenerateClassCluster=0
 DocumentUniqueId=DEXPWEOQ
 
 [Document6]
-DocumentPath=ecs8a_sch_v2.SchDoc
+DocumentPath=ecs8a_v3_top.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=GTHRGSDG
+
+[Document7]
+DocumentPath=ecs8a_sch_v3_top.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=DLRQHNXB
+
+[Document8]
+DocumentPath=ecs8a_sch_v3_bottom.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -140,8 +174,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TMPPVAWV
 
-[Document7]
-DocumentPath=ecs8a_pcb_debug.PcbDoc
+[Document9]
+DocumentPath=ecs8a_sch_v3_bottom_ina169.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -155,10 +189,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SGOCFMWU
+DocumentUniqueId=
 
-[Document8]
-DocumentPath=ecs8a_pcb_debug_v2.PcbDoc
+[Document10]
+DocumentPath=ecs8a_v3_bottom.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -172,10 +206,18 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XTMDDBTX
+DocumentUniqueId=JTEYBBUD
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_pcb_debug_v2.html
+DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_bottom.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_top.html
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for ecs8a\Design Rule Check - ecs8a_v3_top.html
 DItemRevisionGUID=
 
 [Configuration1]
