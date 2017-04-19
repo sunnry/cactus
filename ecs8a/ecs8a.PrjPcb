@@ -157,15 +157,87 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QQMOFLWU
 
+[Document8]
+DocumentPath=ecs8a_sch_v3_bottom.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=TMPPVAWV
+
+[Document9]
+DocumentPath=ecs8a_sch_v3_top.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=DLRQHNXB
+
+[Document10]
+DocumentPath=ecs8a_v3_bottom.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JTEYBBUD
+
+[Document11]
+DocumentPath=ecs8a_v3_top.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=GTHRGSDG
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_bottom.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_top.html
+DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_bottom_ina169.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
+DocumentPath=Project Outputs for ecs8a\Board Information - ecs8a_v3_top.html
+DItemRevisionGUID=
+
+[GeneratedDocument4]
 DocumentPath=Project Outputs for ecs8a\Design Rule Check - ecs8a_v3_top.html
 DItemRevisionGUID=
 
