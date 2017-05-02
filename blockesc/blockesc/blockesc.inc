@@ -41,7 +41,7 @@
 
 .equ	i2c_clk		= 5	; ADC5/SCL
 .equ	i2c_data	= 4	; ADC4/SDA
-.equ	red_led		= 3 ; red led light
+.equ	mux_temperature = 3 ;
 .equ	mux_c		= 2	; ADC2 phase input
 .equ	mux_b		= 1	; ADC1 phase input
 .equ	mux_a		= 0	; ADC0 phase input
@@ -49,17 +49,12 @@
 .equ	O_POWER		= 180	;
 .equ	O_GROUND	= 33	; 
 
-.equ	INIT_PC		= (1<<i2c_clk)+(1<<i2c_data)+(1<<red_led)
-.equ	DIR_PC		= (1<<red_led)
+.equ	INIT_PC		= (1<<i2c_clk)+(1<<i2c_data)
+.equ	DIR_PC		= 0
 
 .equ	adc_refs	= (0<<REFS0)	; Need 5V ref. of temp. will overflow
 
-.MACRO RED_on
-	sbi	PORTC, red_led
-.ENDMACRO
-.MACRO RED_off
-	cbi	PORTC, red_led
-.ENDMACRO
+
 ;*********************
 ; PORT D definitions *
 ;*********************
@@ -68,11 +63,12 @@
 .equ	CnFET		= 5
 .equ	BnFET		= 4
 .equ	AnFET		= 3
+.equ	red_led		= 2
 .equ	txd		= 1
 .equ	rxd		= 0
 
-.equ	INIT_PD		= (1<<txd)+ (1<<green_led)
-.equ	DIR_PD		= (1<<AnFET)+(1<<BnFET)+(1<<CnFET)+(1<<txd)+(1<<green_led)
+.equ	INIT_PD		= (1<<txd)+ (1<<green_led) +(1<<red_led)
+.equ	DIR_PD		= (1<<AnFET)+(1<<BnFET)+(1<<CnFET)+(1<<txd)+(1<<green_led)+(1<<red_led)
 
 .equ	AnFET_port	= PORTD
 .equ	BnFET_port	= PORTD
@@ -83,4 +79,11 @@
 .ENDMACRO
 .MACRO GRN_off
 	cbi	PORTD, green_led
+.ENDMACRO
+
+.MACRO RED_on
+	sbi	PORTD, red_led
+.ENDMACRO
+.MACRO RED_off
+	cbi	PORTD, red_led
 .ENDMACRO
