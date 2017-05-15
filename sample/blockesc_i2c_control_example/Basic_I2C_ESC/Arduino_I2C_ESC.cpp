@@ -58,7 +58,7 @@ bool Arduino_I2C_ESC::isAlive() {
 }
 
 float Arduino_I2C_ESC::voltage() {
-	return float(_voltage_raw)/65536.0f*5.0f*6.45f;
+	return float(_voltage_raw)/65536.0f*5.0f*3.13f;
 }
 
 float Arduino_I2C_ESC::current() {
