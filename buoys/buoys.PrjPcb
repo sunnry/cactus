@@ -56,23 +56,6 @@ GenerateClassCluster=0
 DocumentUniqueId=PHGAJKDV
 
 [Document2]
-DocumentPath=buoys_sch.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MISLKRVO
-
-[Document3]
 DocumentPath=buoys_sch_lib.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -89,8 +72,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YIGAVBTN
 
-[Document4]
-DocumentPath=buoys_pcb.PcbDoc
+[Document3]
+DocumentPath=buoys_sch_v2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -104,7 +87,28 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=HTYFDPNL
+DocumentUniqueId=MISLKRVO
+
+[Document4]
+DocumentPath=buoys_pcb_v2.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JTGUCRBQ
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for buoys\Board Information - buoys_pcb_v2.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Default Configuration
